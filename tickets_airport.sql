@@ -1,6 +1,6 @@
 Use master;
 -- Verifica si la base de datos ya existe
-IF EXISTS (SELECT * FROM sys.databases WHERE name = 'Airport')
+IF EXISTS (SELECT * FROM sys.databases WHERE name = 'tickets_airport')
 BEGIN 
     PRINT 'La base de datos ya existe';
 END 
