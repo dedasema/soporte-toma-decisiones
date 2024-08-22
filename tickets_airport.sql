@@ -1,4 +1,5 @@
 Use master;
+GO
 -- Verifica si la base de datos ya existe
 IF EXISTS (SELECT * FROM sys.databases WHERE name = 'tickets_airport')
 BEGIN 
@@ -11,7 +12,7 @@ BEGIN
 END;
 
 GO
--- Cambia al contexto de la base de datos Airport
+-- Cambia al contexto de la base de datos tickets_airport
 USE tickets_airport;
 GO
 -- Crea las tablas
