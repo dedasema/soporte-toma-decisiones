@@ -5,7 +5,7 @@ BEGIN
 END 
 ELSE 
 BEGIN
-    PRINT 'La base de datos no existe, Procediendo a crearla';
+    PRINT 'La base de datos no existe, iniciando proceso de creaciÃ³n';
     CREATE DATABASE Airport;
 END;
 
@@ -162,7 +162,7 @@ BEGIN TRY
         FOREIGN KEY (id_seat) REFERENCES seat(location_seat)
     );
 
-    PRINT 'Operación exitosa';
+    PRINT 'Operaciï¿½n exitosa';
     COMMIT TRANSACTION;
 END TRY
 BEGIN CATCH
@@ -175,24 +175,24 @@ BEGIN TRANSACTION;
 BEGIN TRY
     INSERT INTO passport (number, first_name, last_name, nationality, issue_date)
     VALUES
-        (1, 'Juan', 'Pérez', 'Mexicano', '2024-01-15'),
-        (2, 'Ana', 'García', 'Española', '2023-06-22'),
-        (3, 'Pedro', 'Martínez', 'Argentino', '2024-03-30'),
-        (4, 'Luisa', 'Fernández', 'Colombiana', '2024-07-12');
+        (1, 'Juan', 'Pï¿½rez', 'Mexicano', '2024-01-15'),
+        (2, 'Ana', 'Garcï¿½a', 'Espaï¿½ola', '2023-06-22'),
+        (3, 'Pedro', 'Martï¿½nez', 'Argentino', '2024-03-30'),
+        (4, 'Luisa', 'Fernï¿½ndez', 'Colombiana', '2024-07-12');
 
     INSERT INTO identity_card (number, first_name, last_name, birthdate, address_home)
     VALUES
-        (101, 'Juan', 'Pérez', '1985-11-23', 'Calle Falsa 123'),
-        (102, 'Ana', 'García', '1990-02-14', 'Avenida Principal 456'),
-        (103, 'Pedro', 'Martínez', '1987-05-09', 'Calle Real 789'),
-        (104, 'Luisa', 'Fernández', '1992-08-17', 'Carrera Central 321');
+        (101, 'Juan', 'Pï¿½rez', '1985-11-23', 'Calle Falsa 123'),
+        (102, 'Ana', 'Garcï¿½a', '1990-02-14', 'Avenida Principal 456'),
+        (103, 'Pedro', 'Martï¿½nez', '1987-05-09', 'Calle Real 789'),
+        (104, 'Luisa', 'Fernï¿½ndez', '1992-08-17', 'Carrera Central 321');
 
     INSERT INTO customer (id, date_of_birth, name_customer, id_passport, id_identity_card)
     VALUES
-        (1, '1985-11-23', 'Juan Pérez', 1, 101),
-        (2, '1990-02-14', 'Ana García', 2, 102),
-        (3, '1987-05-09', 'Pedro Martínez', 3, 103),
-        (4, '1992-08-17', 'Luisa Fernández', 4, 104);
+        (1, '1985-11-23', 'Juan Pï¿½rez', 1, 101),
+        (2, '1990-02-14', 'Ana Garcï¿½a', 2, 102),
+        (3, '1987-05-09', 'Pedro Martï¿½nez', 3, 103),
+        (4, '1992-08-17', 'Luisa Fernï¿½ndez', 4, 104);
 
     INSERT INTO frequent_flyer_card (ffc_number, milles, meal_code, customer_id)
     VALUES
@@ -210,22 +210,22 @@ BEGIN TRY
 
     INSERT INTO country (name)
     VALUES
-        ('México'),
-        ('España'),
+        ('Mï¿½xico'),
+        ('Espaï¿½a'),
         ('Argentina'),
         ('Colombia');
 
     INSERT INTO city (name, id_country)
     VALUES
-        ('Ciudad de México', 1),
+        ('Ciudad de Mï¿½xico', 1),
         ('Madrid', 2),
         ('Buenos Aires', 3),
-        ('Bogotá', 4);
+        ('Bogotï¿½', 4);
 
     INSERT INTO airport (id, name_airport, id_city)
     VALUES
-        ('A001', 'Aeropuerto Internacional de la Ciudad de México', 1),
-        ('A002', 'Aeropuerto Adolfo Suárez Madrid-Barajas', 2),
+        ('A001', 'Aeropuerto Internacional de la Ciudad de Mï¿½xico', 1),
+        ('A002', 'Aeropuerto Adolfo Suï¿½rez Madrid-Barajas', 2),
         ('A003', 'Aeropuerto Internacional de Ezeiza', 3),
         ('A004', 'Aeropuerto El Dorado', 4);
 
@@ -266,7 +266,7 @@ BEGIN TRY
 
     INSERT INTO modes (mode)
     VALUES
-        ('Económica'),
+        ('Econï¿½mica'),
         ('Primera Clase'),
         ('Business'),
         ('Premium Economy');
