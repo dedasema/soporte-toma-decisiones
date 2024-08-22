@@ -1,3 +1,4 @@
+Use master;
 -- Verifica si la base de datos ya existe
 IF EXISTS (SELECT * FROM sys.databases WHERE name = 'Airport')
 BEGIN 
@@ -6,16 +7,106 @@ END
 ELSE 
 BEGIN
     PRINT 'La base de datos no existe, iniciando proceso de creación';
-    CREATE DATABASE Airport;
+    CREATE DATABASE tickets_airport;
 END;
 
 GO
 -- Cambia al contexto de la base de datos Airport
-USE Airport;
+USE tickets_airport;
 GO
 -- Crea las tablas
 BEGIN TRANSACTION;
 BEGIN TRY
+    IF OBJECT_ID('passport', 'U') IS NOT NULL
+    BEGIN
+        DROP TABLE passport;
+    END
+
+    IF OBJECT_ID('identity_card', 'U') IS NOT NULL
+    BEGIN
+        DROP TABLE identity_card;
+    END
+
+    IF OBJECT_ID('customer', 'U') IS NOT NULL
+    BEGIN
+        DROP TABLE customer;
+    END
+
+    IF OBJECT_ID('frequent_flyer_card', 'U') IS NOT NULL
+    BEGIN
+        DROP TABLE frequent_flyer_card;
+    END
+
+    IF OBJECT_ID('ticket', 'U') IS NOT NULL
+    BEGIN
+        DROP TABLE ticket;
+    END
+
+    IF OBJECT_ID('country', 'U') IS NOT NULL
+    BEGIN
+        DROP TABLE country;
+    END
+
+    IF OBJECT_ID('city', 'U') IS NOT NULL
+    BEGIN
+        DROP TABLE city;
+    END
+
+    IF OBJECT_ID('airport', 'U') IS NOT NULL
+    BEGIN
+        DROP TABLE airport;
+    END
+
+    IF OBJECT_ID('plane_model', 'U') IS NOT NULL
+    BEGIN
+        DROP TABLE plane_model;
+    END
+
+    IF OBJECT_ID('seat', 'U') IS NOT NULL
+    BEGIN
+        DROP TABLE seat;
+    END
+
+    IF OBJECT_ID('airplane', 'U') IS NOT NULL
+    BEGIN
+        DROP TABLE airplane;
+    END
+
+    IF OBJECT_ID('flight_number', 'U') IS NOT NULL
+    BEGIN
+        DROP TABLE flight_number;
+    END
+
+    IF OBJECT_ID('distance', 'U') IS NOT NULL
+    BEGIN
+        DROP TABLE distance;
+    END
+
+    IF OBJECT_ID('modes', 'U') IS NOT NULL
+    BEGIN
+        DROP TABLE modes;
+    END
+
+    IF OBJECT_ID('flight', 'U') IS NOT NULL
+    BEGIN
+        DROP TABLE flight;
+    END
+
+    IF OBJECT_ID('coupon', 'U') IS NOT NULL
+    BEGIN
+        DROP TABLE coupon;
+    END
+
+    IF OBJECT_ID('pieces_of_luggage', 'U') IS NOT NULL
+    BEGIN
+        DROP TABLE pieces_of_luggage;
+    END
+
+    IF OBJECT_ID('available_seat', 'U') IS NOT NULL
+    BEGIN
+        DROP TABLE available_seat;
+    END
+
     CREATE TABLE passport (
         number INT PRIMARY KEY NOT NULL,
         first_name VARCHAR(50),
@@ -105,9 +196,9 @@ BEGIN TRY
         airline VARCHAR(30),
         id_plane_model INT,
         StartAirport INT,
-		GoalAirport INT,
-		FOREIGN KEY (StartAirport) REFERENCES Airport(id),
-		FOREIGN KEY (GoalAirport) REFERENCES Airport(id),
+        GoalAirport INT,
+        FOREIGN KEY (StartAirport) REFERENCES Airport(id),
+        FOREIGN KEY (GoalAirport) REFERENCES Airport(id),
         FOREIGN KEY (id_plane_model) REFERENCES plane_model(id)
     );
 
